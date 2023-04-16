@@ -1,6 +1,113 @@
+::selection {
+    background-color: #B50000;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
 }
+
+.main-part {
+    margin-top: 500;
+}
+
+
+.header-logo {
+    position: absolute;
+    left: 75;
+    top: 50;
+}
+
+.social-media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.title-bar {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+}
+
+.me {
+    position: absolute;
+    pointer-events: none;
+    top: 50;
+    right: 5;
+}
+
+.spoiler{
+    background-color: #FC00A8;
+    color: #FC00A8;
+}
+
+.spoiler:hover{
+    background-color: transparent;
+    color: white;
+}
+
+
+
+
+
+
+
+
+.image-border {
+    pointer-events: none;
+}
+
+.image-container {
+    margin-top: 300px;
+    flex-wrap: wrap;
+    gap: 100px;
+    position: absolute;
+    right: 1px;
+}
+
+.clickableimage {
+    left: 78px; 
+    margin-top: 65px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.zoom-image {
+    margin: 0px;
+    position: fixed;
+    top: 0px; left: 0px;
+    background: rgba(0,0,0,.7);
+    height: 100%;
+    width: 100%;
+    z-index:: 100;
+    display: none;
+}
+
+.zoom-image img{
+    width: 1600px;
+    position: absolute;
+    top: 48%; left: 50%; 
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index:: 100;
+}
+
+@media (max-width:1600px){
+    .zoom-image img{
+        width: 100%;
+    }
+}
+
+
+
+
+
 
 #Noise {
     margin: 0;
@@ -13,72 +120,231 @@ body {
     background: url(./img/overlay_noise.png);
 }
 
-.center {
+
+
+
+
+
+
+
+.drum-arrow {
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    pointer-events: none;
+}
+
+button#drumscroll {
+    left: -93px;
+    bottom: -88px;
+    animation: drum-anim 40s infinite linear;
+    position: fixed;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+button#drumscroll:hover {
+    animation: drum-hover 0.5s ease;
+}
+
+button#drumscroll:hover + .drum-arrow {
+    animation: drum-arrow 0.9s ease;
+    animation-fill-mode: forwards;
+}
+
+.drum-shadow {
+    left: -100;
+    bottom: -100;
+    position: fixed;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    pointer-events: none;
+}
+
+.drum-circles-small {
+    left: -100;
+    bottom: -100;
+    animation: drum-anim-reverse 30s infinite linear;
+    position: fixed;
+    display: block;
+    pointer-events: none;
+}
+
+.drum-circles-big {
+    left: -100;
+    bottom: -100;
+    animation: drum-anim 15s infinite linear;
+    position: fixed;
+    display: block;
+    pointer-events: none;
+}
+
+@keyframes drum-arrow {
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes drum-no-arrow {
+    0% { opacity: 1; }         
+    100% { opacity: 0; }   
+}
+
+@keyframes drum-anim {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes drum-anim-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes drum-hover {
+    to { transform: rotate(-540deg); }           
+}
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: JostLight;
+    src: url(fonts/JostLight.otf);
 }
 
 @font-face {
-    font-family: 'Comet';
-    src: url(fonts/Comet.otf);
+    font-family: JostBold;
+    src: url(fonts/JostBold.otf);
 }
 
-@font-face {
-    font-family: 'JostRegular';
-    src: url(fonts/JostRegular.otf);
-}
+
+
+
+
+
 
 h1 { 
-    font-size: 125px; 
-    text-align: center; 
-    color: white; 
-    font-family: "Comet"
+    font-size: 40px; 
+    color: white;
+    font-family: JostLight;
+    font-weight: normal;
 }
-p {
-    font-size: 18px; 
-    text-shadow: #000000 0px 0px 5px; 
+
+h2 { 
+    margin-top: -29;
+    font-size: 17px; 
     text-align: center; 
     color: white;
-    font-family: "JostRegular"
+    font-family: JostLight;
+    font-weight: normal;
 }
 
-.title-stroke {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    position: absolute;
-    background: transparent;
-    z-index: 0;
-    color: #282828;
-}
-.title-stroke:before {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    content: attr(title);
-    position: absolute;
-    -webkit-text-stroke: 0.05em white; 
-    left: 0;
-    z-index: -1;
-}
-.title-stroke:after {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    content: attr(title);
-    position: absolute;
-    -webkit-text-stroke: 0.11em #282828;
-    left: 0;
-    z-index: -2;
+h3 { 
+    margin-top: -10;
+    font-size: 15px; 
+    text-align: center; 
+    color: white;
+    font-family: JostLight;
+    font-weight: normal;
 }
 
-.social-media {
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+h4 { 
+    font-size: 72px; 
+    text-align: center; 
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white; 
+    width: 1310;
+    font-family: JostBold;
+    font-weight: normal;
+}
+
+h6 {
+    font-size: 20px; 
+    text-align: center; 
+    color: white;
+    font-family: JostLight;
+    font-weight: normal;
+}
+
+p {
+    margin-left: 75px;
+    font-size: 22px; 
+    text-indent: 25px;
+    text-align: left; 
+    color: white;
+    width: 1250;
+    font-family: JostLight
+}
+
+pre {
+    margin-left: 100px;
+    font-size: 22px; 
+    text-align: left; 
+    color: white;
+    white-space: pre-line;
+    width: 1250px;
+    font-family: JostLight
+}
+
+
+
+
+
+
+
+a {
+  -webkit-transition: color .2s linear;
+  -moz-transition: color .2s linear;
+  -ms-transition: color .2s linear;
+  -o-transition: color .2s linear;
+  transition: color .2s linear;
+}
+
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #FC00A8;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #880000;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+img#vk-button {
+    background: url("/img/icon_vk.png");
+    background-size: 75px 75px;
+    transition: background 0.25s ease-in-out;
+}
+
+img#vk-button:hover {
+    background: url("/img/icon_vk_hover.png");
+    background-size: 75px 75px;
 }
