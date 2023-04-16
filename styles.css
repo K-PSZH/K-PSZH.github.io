@@ -45,6 +45,11 @@ body {
 .spoiler{
     background-color: #FC00A8;
     color: #FC00A8;
+    -webkit-transition: color .2s linear;
+    -moz-transition: color .2s linear;
+    -ms-transition: color .2s linear;
+    -o-transition: color .2s linear;
+    transition: color .2s linear;
 }
 
 .spoiler:hover{
@@ -298,53 +303,34 @@ pre {
 
 
 a {
-  -webkit-transition: color .2s linear;
-  -moz-transition: color .2s linear;
-  -ms-transition: color .2s linear;
-  -o-transition: color .2s linear;
-  transition: color .2s linear;
+    -webkit-transition: color .2s linear;
+    -moz-transition: color .2s linear;
+    -ms-transition: color .2s linear;
+    -o-transition: color .2s linear;
+    transition: color .2s linear;
 }
 
 
 a:link {
-  color: white;
-  background-color: transparent;
-  text-decoration: underline;
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 a:visited {
-  color: #FC00A8;
-  background-color: transparent;
-  text-decoration: underline;
+    color: #FC00A8;
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 a:active {
-  color: #880000;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-
-
-
-
-
-
-
-
-img#vk-button {
-    background: url("/img/icon_vk.png");
-    background-size: 75px 75px;
-    transition: background 0.25s ease-in-out;
-}
-
-img#vk-button:hover {
-    background: url("/img/icon_vk_hover.png");
-    background-size: 75px 75px;
+    color: #880000;
+    background-color: transparent;
+    text-decoration: underline;
 }
