@@ -1,1 +1,0 @@
-# k-pszh.github.io
